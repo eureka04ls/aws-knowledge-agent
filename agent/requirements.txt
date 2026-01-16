@@ -1,0 +1,6 @@
+botocore
+bedrock-agentcore
+
+strands-agents
+strands-agents[mcp]
+strands-agents[otel]
