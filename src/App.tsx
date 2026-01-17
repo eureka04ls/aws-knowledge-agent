@@ -42,15 +42,16 @@ function App() {
     setInput('');
     setLoading(true);
 
-    // Cognito認証トークンを取得（idTokenを使用 - audクレームにクライアントIDが含まれる）
+    // Cognito認証トークンを取得（API呼び出しは accessToken を使用）
     const session = await fetchAuthSession();
-    const idToken = session.tokens?.idToken?.toString();
+    const accessToken = session.tokens?.accessToken?.toString();
+    if (!accessToken) throw new Error('No access token');
 
     // AgentCore Runtime APIを呼び出し
     const url = `https://bedrock-agentcore.ap-northeast-1.amazonaws.com/runtimes/${encodeURIComponent(AGENT_ARN)}/invocations?qualifier=DEFAULT`;
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Authorization': `Bearer ${idToken}`, 'Content-Type': 'application/json' },
+      headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: userMessage.content }),
     });
 

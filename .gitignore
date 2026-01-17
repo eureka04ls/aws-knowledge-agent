@@ -31,3 +31,12 @@ amplifyconfiguration*
 # environment variables
 .env
 .env.local
+
+# app config (contains sensitive info)
+app.md
+
+# claude
+.claude
+
+# bedrock agentcore
+.bedrock_agentcore.yaml

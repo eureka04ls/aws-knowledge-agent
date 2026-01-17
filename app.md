@@ -14,3 +14,16 @@ AWS Knowledge mcp サーバーを利用します。AgentCore GatewayでMCPサー
 
 ## 参考リポジトリ
 https://github.com/minorun365/amplify-agentcore-sample
+
+## 参考記事
+https://qiita.com/minorun365/items/11be2c3565923b96ab54
+
+## Cognito設定
+- ユーザープールID: ap-northeast-1_WnSvAHDRg
+- アプリケーションクライアントID: 7th5hltttpgb46mnqmpuis936u
+- ユーザープールARN: arn:aws:cognito-idp:ap-northeast-1:003252302937:userpool/ap-northeast-1_WnSvAHDRg
+
+## AgentCore設定
+- Agent ARN: arn:aws:bedrock-agentcore:ap-northeast-1:003252302937:runtime/awsknowledgeagent-3HQagv4w1Z
+- Agent ID: awsknowledgeagent-3HQagv4w1Z
+- Memory ID: awsknowledgeagent_mem-HthEFEFj6c

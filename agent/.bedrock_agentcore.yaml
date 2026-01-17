@@ -1,0 +1,66 @@
+default_agent: awsknowledgeagent
+agents:
+  awsknowledgeagent:
+    name: awsknowledgeagent
+    entrypoint: main.py
+    deployment_type: container
+    runtime_type: null
+    platform: linux/arm64
+    container_runtime: none
+    source_path: C:\Users\kazka\aws-knowledge-agent\agent
+    aws:
+      execution_role: arn:aws:iam::003252302937:role/AmazonBedrockAgentCoreSDKRuntime-ap-northeast-1-e4a511ea4d
+      execution_role_auto_create: false
+      account: 003252302937
+      region: ap-northeast-1
+      ecr_repository: 003252302937.dkr.ecr.ap-northeast-1.amazonaws.com/bedrock-agentcore-awsknowledgeagent
+      ecr_auto_create: false
+      s3_path: null
+      s3_auto_create: false
+      network_configuration:
+        network_mode: PUBLIC
+        network_mode_config: null
+      protocol_configuration:
+        server_protocol: HTTP
+      observability:
+        enabled: true
+      lifecycle_configuration:
+        idle_runtime_session_timeout: null
+        max_lifetime: null
+    bedrock_agentcore:
+      agent_id: awsknowledgeagent-3HQagv4w1Z
+      agent_arn: arn:aws:bedrock-agentcore:ap-northeast-1:003252302937:runtime/awsknowledgeagent-3HQagv4w1Z
+      agent_session_id: null
+    codebuild:
+      project_name: bedrock-agentcore-awsknowledgeagent-builder
+      execution_role: arn:aws:iam::003252302937:role/AmazonBedrockAgentCoreSDKCodeBuild-ap-northeast-1-e4a511ea4d
+      source_bucket: bedrock-agentcore-codebuild-sources-003252302937-ap-northeast-1
+    memory:
+      mode: STM_ONLY
+      memory_id: awsknowledgeagent_mem-HthEFEFj6c
+      memory_arn: arn:aws:bedrock-agentcore:ap-northeast-1:003252302937:memory/awsknowledgeagent_mem-HthEFEFj6c
+      memory_name: awsknowledgeagent_mem
+      event_expiry_days: 30
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: true
+    identity:
+      credential_providers: []
+      workload: null
+    aws_jwt:
+      enabled: false
+      audiences: []
+      signing_algorithm: ES384
+      issuer_url: null
+      duration_seconds: 300
+    authorizer_configuration:
+      customJWTAuthorizer:
+        discoveryUrl: https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_WnSvAHDRg/.well-known/openid-configuration
+        allowedAudience:
+        - 7th5hltttpgb46mnqmpuis936u
+        allowedClients:
+        - 7th5hltttpgb46mnqmpuis936u
+    request_header_configuration: null
+    oauth_configuration: null
+    api_key_env_var_name: null
+    api_key_credential_provider_name: null
+    is_generated_by_agentcore_create: false
